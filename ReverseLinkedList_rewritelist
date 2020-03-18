@@ -1,0 +1,34 @@
+def reverse(linked_list):
+    """
+    Reverse the inputted linked list
+
+    Args:
+       linked_list(obj): Linked List to be reversed
+    Returns:
+       obj: Reveresed Linked List
+    """
+    
+
+    '''lead_node initialized as current head, and stays pointing to this node as it moves down the list'''
+    tmp_linked_list = linked_list
+    lead_node = tmp_linked_list.head
+    print(linked_list.head)
+    print(tmp_linked_list.head)
+    
+    while lead_node.next:
+        """
+        1. the node after lead_node (lead_node.next) will prepend the list, 
+           and lead_node will take on the prepended node's 'next' value (lead_node.next.next)
+        2. then, this prepended node will replace it's 'next' value with the list's current head
+        3. and it will also declare itself to be the new list head
+        ...until the lead_node.next is None 
+        """
+        tmp=lead_node.next
+        lead_node.next = lead_node.next.next
+        tmp.next = linked_list.head
+        linked_list.head = tmp
+#         if lead_node.next is None:
+#             print(linked_list.to_list())
+
+            return linked_list
+    return linked_list
