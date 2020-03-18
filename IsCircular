@@ -1,0 +1,30 @@
+def iscircular(linked_list):
+    """
+    Determine whether the Linked List is circular or not
+
+    Args:
+       linked_list(obj): Linked List to be checked
+    Returns:
+       bool: Return True if the linked list is circular, return False otherwise
+    """
+    
+    # set both slow_node and fast_node to linked_list.head
+    #
+    # move slow_node forward - next node
+    # move fast_node forward - next.next node
+    # check if the two nodes have landed on same node, 
+    # if yes, there is a loop (what about last node? -->provided that node.next is not None (the last node), however
+    # this would cause an error with fast_node, as there is no node at node.next.next)
+    #
+    # special cases: empty list, list with one element
+    
+    slow_node = linked_list.head
+    fast_node = linked_list.head
+    
+    while fast_node.next:      #if the next node is ever null, there is no loop, the list will stop (and fast gets there first)
+        fast_node = fast_node.next.next
+        slow_node = slow_node.next
+        if slow_node == fast_node:
+            return True
+        
+    return False
