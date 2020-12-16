@@ -1,11 +1,4 @@
 # BinarySearchTree: A binary search tree.
-# Implement as many operations as possible with recursion.
-# If you can't figure it out recursively, use a loop. (But then refactor
-# your implementation into a recursive one!)
-# Your implementation should pass the tests in test_bst.py.
-# Abhimanyu. bais
-
-import test_bst as bst
 
 class BinarySearchTree:
 
@@ -44,68 +37,6 @@ class BinarySearchTree:
                 return None if self.right is None else self.right.search(value)
             else:
                 return self
-
-    # def delete(self, value):
-    #
-    #     node = self.search(value)
-    #
-    #     if node is None:
-    #         # return self at bottom
-    #         pass
-    #
-    #     elif node == self:
-    #         # if the value we want to delete is the root itself
-    #
-    #         if self.left is None and self. right is None:
-    #             # This is for a single level tree
-    #             self = None
-    #
-    #         elif self.right is not None:
-    #             mymin = node.right.minimum()
-    #             mymin.left = node.left
-    #             mymin.parent.left = None
-    #             if mymin.has_right_child:
-    #                 mymin.right = node.right
-    #             else:
-    #                 mymin.right = None
-    #             self = mymin
-    #             return mymin
-    #             # This is for when the tree has a right child which will be the new root
-    #             # if self.left is not None:
-    #             #     self.right.left = self.left
-    #             # self = self.right
-    #
-    #         elif node.left is not None and node.right is None:
-    #             mymin = node.right.minimum()
-    #             mymin.right = node.right
-    #             mymin.left = node.left
-    #             mymin.parent.left = None
-    #             if mymin.has_right_child:
-    #                 mymin.right = node.right
-    #             else:
-    #                 mymin.right = None
-    #             node = mymin
-    #             return mymin
-    #             # This is for when the tree has a left child which will be the new root
-    #             # if self.right is not None:
-    #             #     self.left.right = self.right
-    #             # self = self.left
-    #
-    #     elif node.key >= node.parent.key:
-    #         if node.is_leaf():
-    #             node.parent.right = None
-    #         else:
-    #             mymin = node.right.minimum()
-    #             node.parent.right = mymin
-    #
-    #     elif node.key < node.parent.key:
-    #         if node.is_leaf():
-    #             node.parent.left = None
-    #         else:
-    #             mymin = node.left.minimum()
-    #             node.parent.left = mymin
-    #
-    #     return self
 
     def delete(self, key):
         """ delete the node with the given key and return the
