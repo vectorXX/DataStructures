@@ -27,7 +27,7 @@ asia_countryKEY_city = locations['Asia']
 city_list = []
 for country, cities in asia_countryKEY_city.items():
     for city in cities:
-        city_list.append([city, country])
+        city_list.append([city, country]) #can use format: city_list.append('{} - {}'.format(city, country))
 #print(city_list)
 city_list.sort()
 #for a in sorted(city_list, key = lambda x: x[0]):
