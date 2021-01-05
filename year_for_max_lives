@@ -1,0 +1,16 @@
+#intervals = [[1927,1999],[1950,2004],[1916,2000],[1990,2019],[1918,1947],[2004,2019],[2009,2019]]
+intervals = [[2000,2010],[1975,2005],[1975,2003],[1803,1809],[1750,1869],[1840,1935],[1803,1921],[1894,1921]]
+max_lives = 0
+max_year = 0
+years = []
+for i in intervals:
+    years.append([i[0],1])
+    years.append([i[1]+1,-1])  #nuance: this should be decremented the year after death, i[1]+1
+years.sort()
+lives_now = 0
+for year in years:
+    lives_now = lives_now + year[1]
+    if max_lives < lives_now:
+        max_lives = lives_now
+        max_year = year[0]
+print(max_year, max_lives)
