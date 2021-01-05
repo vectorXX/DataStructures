@@ -1,0 +1,21 @@
+
+def findNumProvinces(self, isConnected: List[List[int]]) -> int:
+    #isConnected test data
+    #[[1,1,0,1,0,0],[1,1,0,0,0,0],[0,0,1,0,0,1],[1,0,0,1,1,0],[0,0,0,1,1,0],[0,0,1,0,0,1]]
+    #[[1,0,0,1],[0,1,1,0],[0,1,1,1],[1,0,1,1]]
+    provinces = 0
+    row_checked = [0 for n in range(len(isConnected))] 
+    for i in range(len(isConnected)):
+        if row_checked[i] == 0:
+            self.dfs(isConnected, row_checked, i)
+            provinces += 1
+    return provinces
+
+def dfs(self, grid, row_checked, i):
+    #here we check all the cities for connection to city i =>check the entries in row i
+    for j in range(len(grid)):
+        if grid[i][j] == 1 and row_checked[j] == 0:
+            #grid[i][j] = 0 don't do this because using row_checked
+            row_checked[j] = 1
+            #the variable j will become i in the called function, and will check all provinces connected to j
+            self.dfs(grid, row_checked, j) 
