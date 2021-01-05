@@ -1,0 +1,18 @@
+isConnected = [[1,1,0,1,0,0],[1,1,0,0,0,0],[0,0,1,0,0,1],[1,0,0,1,1,0],[0,0,0,1,1,0],[0,0,1,0,0,1]]
+provinces = []
+n = len(isConnected)
+for i in range(0,n):
+    new_province = True
+    for idx, p in enumerate(provinces):
+        if i in p:
+            p_idx = idx
+            new_province = False
+    if new_province:
+        provinces.append([i])
+        p_idx = -1
+    for j in range(i+1,n):
+        #print('[', i, ',', j, ']')
+        if isConnected[i][j] == 1:
+            provinces[p_idx].append(j)
+print(provinces)
+print('There are {} provinces.'.format(len(provinces)))
